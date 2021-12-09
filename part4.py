@@ -114,9 +114,8 @@ def parseNumsAndBoards(filepath):
 
 nums, boards = parseNumsAndBoards("AoC2021/part4.txt")
 
-win_board = -1
+win_board = []
 last_called = -1
-win = False
 
 for num in nums:
 	for board_idx, board in enumerate(boards):
@@ -127,11 +126,27 @@ for num in nums:
 
 		if board.isWin():
 			last_called = num
-			win_board = board_idx
-			win = True
-	
-	if win:
+			win_board.append(board_idx)
+
+	if len(win_board) > 0:
 		break
 
-sum_unmarked = boards[win_board].sumUnmarked()
+sum_unmarked = boards[win_board[0]].sumUnmarked()
+print(f"D4P1: {sum_unmarked*last_called}")
+
+# Day 4 Part 2
+win_board = []
+last_called = -1
+
+for num in nums:
+	for board_idx, board in enumerate(boards):
+		r, c = board.isNumInBoard(num)
+		if board_idx not in win_board:
+			if r != -1 and c != -1:
+				board.setMarked(r, c)
+			if board.isWin():
+				last_called = num
+				win_board.append(board_idx)
+
+sum_unmarked = boards[win_board[-1]].sumUnmarked()
 print(f"D4P1: {sum_unmarked*last_called}")
