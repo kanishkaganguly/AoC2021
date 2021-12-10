@@ -149,4 +149,4 @@ for num in nums:
 				win_board.append(board_idx)
 
 sum_unmarked = boards[win_board[-1]].sumUnmarked()
-print(f"D4P1: {sum_unmarked*last_called}")
+print(f"D4P2: {sum_unmarked*last_called}")
