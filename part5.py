@@ -36,7 +36,7 @@ def ConditionalRange(start, end):
 	else:
 		return [i for i in range(start, end-1, -1)]
 
-part2 = True
+part2 = False
 # Day 5 Part 1
 for start, end in zip(starts, ends):
 	(startx, starty) = start
@@ -56,4 +56,4 @@ for start, end in zip(starts, ends):
 			for (x,y) in zip(i, j):
 				vents_table[x][y] += 1
 
-print(f"D5P1: {countOverlap(vents_table)}")
+print(f'{"D5P1" if not part2 else "D5P2"}: {countOverlap(vents_table)}')
