@@ -32,3 +32,6 @@ jobs:
         with:
           commit_message: Update badges
           file_pattern: README.md
+          push_options: '--force'
+          commit_author_email: kanishkaganguly2002@gmail.com
+          commit_author_name: Kanishka Ganguly
